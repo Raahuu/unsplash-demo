@@ -1,4 +1,5 @@
 import findAndUpdate from "../../Helpers/findAndUpdate";
+import findAndDelete from "../../Helpers/findAndDelete";
 
 const initialState = {
   fetching: false,
@@ -19,6 +20,12 @@ const reducer = (state = initialState, action) => {
         fetching: true,
         data: findAndUpdate(action.payload, state.data),
         error: null,
+      };
+
+    case "DELETE":
+      return {
+        ...state,
+        data: findAndDelete(action.payload, state.data),
       };
 
     default:

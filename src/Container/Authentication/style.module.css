@@ -1,0 +1,26 @@
+.navigation {
+  font-size: 13px;
+  font-weight: bold;
+  width: 150px;
+  color: rgb(44, 143, 255);
+  margin-left: 75px;
+}
+.navigation:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formcontainer {
+  border: 3px solid rgb(44, 143, 255);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

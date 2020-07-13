@@ -27,9 +27,13 @@ const Tab2 = () => {
     handleClose();
   };
 
-  const handleClick = (id) => {
-    setSelectedID(id);
-    setShow(true);
+  const handleClick = (id, type) => {
+    if (type === "delete") {
+      dispatch({ type: "DELETE", payload: id });
+    } else {
+      setSelectedID(id);
+      setShow(true);
+    }
   };
 
   const handleClose = () => {
@@ -51,11 +55,11 @@ const Tab2 = () => {
   }, [selectedID]);
 
   return (
-    <>
-      <div>
+    <div className={classes.cardHolderContainer}>
+      <div className={classes.cardContainer}>
         {cardData.map((card) => (
           <Card
-            clicked={(id) => handleClick(id)}
+            clicked={(id, type) => handleClick(id, type)}
             editable
             key={card.id}
             data={card}
@@ -64,39 +68,52 @@ const Tab2 = () => {
       </div>
       <Modal show={show} onHide={() => handleClose()}>
         <Modal.Header closeButton>
-          <h3 className={classes.modalHeader}>You can edit the details here</h3>
+          <p className={classes.modalHeader}>You can edit the details here</p>
         </Modal.Header>
         <div className={classes.modalBody}>
-          <label htmlFor="author">Author</label>
-          <input
-            id="author"
-            value={author}
-            onChange={(event) => setAuthor(event.target.value)}
-          />
-
-          <label htmlFor="description">Description</label>
-          <input
-            id="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-
-          <button variant="secondary" onClick={() => handleClose()}>
-            Close
-          </button>
-          <button variant="primary" onClick={() => submitChanges()}>
-            Save Changes
-          </button>
+          <div className={classes.formItem}>
+            <label htmlFor="author">Author</label>
+            <input
+              id="author"
+              value={author}
+              onChange={(event) => setAuthor(event.target.value)}
+            />
+          </div>
+          <div className={classes.formItem}>
+            <label htmlFor="description">Description</label>
+            <input
+              id="description"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+            />
+          </div>
+          <div className={classes.formItem}>
+            <label htmlFor="title">Title</label>
+            <input
+              id="title"
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+            />
+          </div>
+          <div className={classes.formCTA}>
+            <button
+              className={classes.closeBtn}
+              variant="secondary"
+              onClick={() => handleClose()}
+            >
+              Close
+            </button>
+            <button
+              className={classes.saveBtn}
+              variant="primary"
+              onClick={() => submitChanges()}
+            >
+              Save Changes
+            </button>
+          </div>
         </div>
       </Modal>
-    </>
+    </div>
   );
 };
 

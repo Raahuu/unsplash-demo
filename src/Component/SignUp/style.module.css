@@ -1,0 +1,39 @@
+.label {
+  color: rgb(68, 68, 68);
+  font-size: 14px;
+}
+.inputBox {
+  background-color: rgb(243, 243, 243);
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid rgb(44, 143, 255);
+  outline: none;
+  padding-left: 5%;
+}
+.formHolder {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.submitButton {
+  background-color: white;
+  border: 2px solid rgb(44, 143, 255);
+  border-radius: 5px;
+  padding: 5px 0;
+  width: 90%;
+  margin: 20px 0;
+}
+
+.submitButton:hover {
+  background-color: rgb(44, 143, 255);
+  border: 2px solid rgb(192, 192, 192);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 90%;
+  margin: 20px 0;
+}
+.formfull {
+  padding: 50px;
+}

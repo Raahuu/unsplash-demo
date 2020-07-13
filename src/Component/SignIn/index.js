@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { NotificationManager } from "react-notifications";
+import classes from "./style.module.css";
 
 const SignIn = () => {
   const [username, setUserName] = useState("");
@@ -22,30 +24,45 @@ const SignIn = () => {
   useEffect(() => {
     if (loginStatus === "Correct") {
       history.push("/dashboard");
+    } else if (loginStatus === "Incorrect") {
+      NotificationManager.error(
+        "Username or password is not correct",
+        "Error",
+        2000
+      );
+      dispatch({ type: "CLEAR" });
     }
   }, [loginStatus]);
 
   return (
-    <div>
-      <div>
-        <label htmlFor="username">UserName</label>
+    <div className={classes.formfull}>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="username">
+          UserName
+        </label>
         <input
+          className={classes.inputBox}
           id="username"
           value={username}
           placeholder="Your username here"
           onChange={(e) => setUserName(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="password">
+          Password
+        </label>
         <input
+          className={classes.inputBox}
           id="password"
           value={password}
           placeholder="Your password here"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={() => loginUser()}>Login</button>
+      <button className={classes.submitButton} onClick={() => loginUser()}>
+        Login
+      </button>
     </div>
   );
 };

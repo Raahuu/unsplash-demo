@@ -1,4 +1,52 @@
 .imageHolder {
   height: 200px;
-  width: 200px;
+  width: 90%;
+  margin-top: 10px;
+  background-color: rgba(163, 163, 163, 0.24);
+  align-self: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 30%;
+  margin: 10px;
+  box-shadow: 3px 3px 4px rgba(48, 48, 48, 0.486), -3px -3px 3px white;
+}
+.details {
+  padding: 15px;
+  min-height: 50px;
+  font-style: italic;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+.actions button {
+  padding: 3px 15px;
+  border: none;
+  outline: none;
+  border: 1px solid transparent;
+  margin: 5px;
+}
+.edit {
+  background-color: rgb(59, 144, 255);
+  color: white;
+}
+.edit:hover {
+  background-color: white;
+  border: 1px solid rgb(59, 144, 255);
+  color: rgb(59, 144, 255);
+}
+
+.delete {
+  background-color: #fff;
+  border: 1px solid rgb(255, 52, 52);
+  color: rgb(255, 52, 52);
+}
+.delete:hover {
+  background-color: rgb(255, 52, 52);
+  color: white;
 }

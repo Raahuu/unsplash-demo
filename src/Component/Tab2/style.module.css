@@ -1,0 +1,69 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: space-evenly;
+  background-color: rgb(231, 231, 231);
+}
+.cardHolderContainer {
+  width: 80%;
+}
+.formItem {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.formItem input {
+  border: 1px solid rgb(114, 114, 231);
+  border-radius: 25px;
+  outline: none;
+  padding-left: 5%;
+  height: 35px;
+}
+
+.formItem label {
+  font-size: 14px;
+}
+
+.formCTA {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.formCTA button {
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 5px;
+}
+
+.closeBtn {
+  background-color: lightgray;
+  border: none;
+}
+
+.closeBtn:hover {
+  background-color: rgb(199, 199, 199);
+}
+
+.saveBtn {
+  border: 2px solid rgb(115, 115, 248);
+}
+
+.saveBtn:hover {
+  background-color: rgb(115, 115, 248);
+  color: white;
+}
+
+.modalHeader {
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  margin: 10px 0 0 0;
+  justify-content: center;
+}

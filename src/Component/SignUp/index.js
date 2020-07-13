@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NotificationManager } from "react-notifications";
+import classes from "./style.module.css";
 
 const SignUP = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -54,55 +55,70 @@ const SignUP = (props) => {
   }, [status]);
 
   return (
-    <div>
-      <div>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            id="firstName"
-            value={firstName}
-            placeholder="Enter firstName here"
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            id="lastName"
-            value={lastName}
-            placeholder="Enter lastName here"
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-      </div>
-      <div>
-        <label htmlFor="username">Username</label>
+    <div className={classes.formfull}>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="firstName">
+          First Name
+        </label>
         <input
+          className={classes.inputBox}
+          id="firstName"
+          value={firstName}
+          placeholder="Enter firstName here"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </div>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="lastName">
+          Last Name
+        </label>
+        <input
+          className={classes.inputBox}
+          id="lastName"
+          value={lastName}
+          placeholder="Enter lastName here"
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </div>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="username">
+          Username
+        </label>
+        <input
+          className={classes.inputBox}
           id="username"
           value={username}
           placeholder="Your Username here"
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="password">
+          Password
+        </label>
         <input
+          className={classes.inputBox}
           id="password"
           value={password}
           placeholder="Type a password"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="confPassword">Confirm Password</label>
+      <div className={classes.formHolder}>
+        <label className={classes.label} htmlFor="confPassword">
+          Confirm Password
+        </label>
         <input
+          className={classes.inputBox}
           id="confPassword"
           value={confPassword}
           placeholder="Retype your password here"
           onChange={(e) => setConfPassword(e.target.value)}
         />
       </div>
-      <button onClick={() => handleRegister()}>Register</button>
+      <button className={classes.submitButton} onClick={() => handleRegister()}>
+        Register
+      </button>
     </div>
   );
 };

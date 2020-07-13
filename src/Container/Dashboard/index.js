@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import classes from "./style.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import CardHolder from "../CardHolder";
+import { useDispatch } from "react-redux";
 import Tab1 from "../../Component/Tab1";
 import Tab2 from "../../Component/Tab2";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState(1);
-  const cardsData = useSelector((state) => state.images.data);
+  const [activeTab, setActiveTab] = useState(2);
   const dispatch = useDispatch();
 
   const tab1Classes =
