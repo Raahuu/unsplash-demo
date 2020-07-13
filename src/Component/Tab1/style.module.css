@@ -1,3 +1,8 @@
 .cardHolderContainer {
   width: 80%;
 }
+.loaderContainer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect } from "react-router-dom";
 
 import Authentication from "../Container/Authentication";
 import Dashboard from "../Container/Dashboard";
@@ -14,13 +14,14 @@ const AllRoutes = () => {
     if (!loginStatus || loginStatus === "Incorrect") {
       history.push("/authenticate");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginStatus]);
 
   return (
     <Switch>
       <Route path="/authenticate" exact component={Authentication} />
       <Route path="/dashboard" exact component={Dashboard} />
-      <Route exact path="/" render={() => <h2>Boiler plate Home</h2>} />
+      <Redirect to="/authenticate" from="/" />
     </Switch>
   );
 };

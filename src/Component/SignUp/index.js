@@ -41,7 +41,7 @@ const SignUP = (props) => {
       NotificationManager.error(error, "Error", 2000);
       dispatch({ type: "CLEAR" });
     }
-  }, [error]);
+  }, [dispatch, error]);
 
   useEffect(() => {
     if (status === "Success") {
@@ -52,6 +52,7 @@ const SignUP = (props) => {
       );
       props.registered();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
   return (
@@ -99,6 +100,7 @@ const SignUP = (props) => {
         <input
           className={classes.inputBox}
           id="password"
+          type="password"
           value={password}
           placeholder="Type a password"
           onChange={(e) => setPassword(e.target.value)}
@@ -111,6 +113,7 @@ const SignUP = (props) => {
         <input
           className={classes.inputBox}
           id="confPassword"
+          type="password"
           value={confPassword}
           placeholder="Retype your password here"
           onChange={(e) => setConfPassword(e.target.value)}

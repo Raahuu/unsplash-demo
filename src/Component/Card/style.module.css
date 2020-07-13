@@ -50,3 +50,9 @@
   background-color: rgb(255, 52, 52);
   color: white;
 }
+
+@media screen and (max-width: 750px) {
+  .card {
+    width: 80%;
+  }
+}

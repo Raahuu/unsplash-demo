@@ -5,7 +5,7 @@ import Tab1 from "../../Component/Tab1";
 import Tab2 from "../../Component/Tab2";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState(2);
+  const [activeTab, setActiveTab] = useState(1);
   const dispatch = useDispatch();
 
   const tab1Classes =
@@ -15,7 +15,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch({ type: "GET_IMAGES" });
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.container}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Card from "../../Component/Card";
 import { useSelector, useDispatch } from "react-redux";
+import ClipLoader from "react-spinners/ClipLoader";
 import classes from "./style.module.css";
 
 const Tab2 = () => {
@@ -12,6 +13,7 @@ const Tab2 = () => {
   const [title, setTitle] = useState("");
 
   const cardData = useSelector((state) => state.images.data);
+  const loading = useSelector((state) => state.images.fetching);
   const dispatch = useDispatch();
 
   const submitChanges = () => {
@@ -52,20 +54,28 @@ const Tab2 = () => {
         setTitle(card.title);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedID]);
 
   return (
     <div className={classes.cardHolderContainer}>
-      <div className={classes.cardContainer}>
-        {cardData.map((card) => (
-          <Card
-            clicked={(id, type) => handleClick(id, type)}
-            editable
-            key={card.id}
-            data={card}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <div className={classes.loaderContainer}>
+          <ClipLoader size={75} color={"#123abc"} loading />
+        </div>
+      ) : (
+        <div className={classes.cardContainer}>
+          {cardData.map((card) => (
+            <Card
+              clicked={(id, type) => handleClick(id, type)}
+              editable
+              key={card.id}
+              data={card}
+            />
+          ))}
+        </div>
+      )}
+
       <Modal show={show} onHide={() => handleClose()}>
         <Modal.Header closeButton>
           <p className={classes.modalHeader}>You can edit the details here</p>

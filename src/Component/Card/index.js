@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.css";
 
-const Card = (props, type) => {
+const Card = (props) => {
   return (
     <div className={classes.card}>
       <div className="d-flex flex-column">

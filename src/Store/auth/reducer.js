@@ -8,8 +8,7 @@ const initialState = {
       password: "asdf123",
     },
   ],
-  status: "Correct",
-  // status: undefined,
+  status: undefined,
   error: null,
 };
 const reducer = (state = initialState, action) => {

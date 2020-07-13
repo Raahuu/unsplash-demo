@@ -32,6 +32,7 @@ const SignIn = () => {
       );
       dispatch({ type: "CLEAR" });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginStatus]);
 
   return (
@@ -55,6 +56,7 @@ const SignIn = () => {
         <input
           className={classes.inputBox}
           id="password"
+          type="password"
           value={password}
           placeholder="Your password here"
           onChange={(e) => setPassword(e.target.value)}

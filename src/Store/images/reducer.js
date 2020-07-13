@@ -17,9 +17,8 @@ const reducer = (state = initialState, action) => {
 
     case "EDIT_IMAGE_DATA":
       return {
-        fetching: true,
+        ...state,
         data: findAndUpdate(action.payload, state.data),
-        error: null,
       };
 
     case "DELETE":
