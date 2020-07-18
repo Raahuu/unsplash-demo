@@ -7,7 +7,7 @@
   width: 250px;
   height: 40px;
   border-radius: 20px;
-  border: 2px solid rgb(44, 143, 255);
+  border: 1px solid rgb(50, 122, 255);
   outline: none;
   padding-left: 5%;
 }
@@ -18,16 +18,17 @@
 }
 .submitButton {
   background-color: white;
-  border: 2px solid rgb(44, 143, 255);
+  color: rgb(50, 122, 255);
+  border: 2px solid rgb(50, 122, 255);
   border-radius: 5px;
   padding: 5px 0;
   width: 90%;
-  margin: 20px 0;
+  margin: 20px;
 }
 
 .submitButton:hover {
-  background-color: rgb(44, 143, 255);
-  border: 2px solid rgb(192, 192, 192);
+  background-color: rgb(50, 122, 255);
+  border: 2px solid transparent;
   color: white;
   font-weight: bold;
   border-radius: 5px;

@@ -5,7 +5,6 @@
   margin: 30px 0px;
   padding: 30px 0px;
   justify-content: space-evenly;
-  background-color: rgb(231, 231, 231);
 }
 .cardHolderContainer {
   width: 80%;
@@ -18,10 +17,11 @@
   padding-right: 30px;
 }
 .formItem input {
-  border: 1px solid rgb(114, 114, 231);
+  border: 1px solid rgb(194, 194, 241);
   border-radius: 25px;
   outline: none;
   padding-left: 5%;
+  padding-right: 5%;
   height: 35px;
 }
 
@@ -53,6 +53,9 @@
 
 .saveBtn {
   border: 2px solid rgb(115, 115, 248);
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(115, 115, 248);
 }
 
 .saveBtn:hover {

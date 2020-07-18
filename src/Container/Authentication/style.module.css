@@ -1,8 +1,7 @@
 .navigation {
   font-size: 13px;
-  font-weight: bold;
   width: 150px;
-  color: rgb(44, 143, 255);
+  color: rgb(50, 122, 255);
   margin-left: 75px;
 }
 .navigation:hover {
@@ -19,7 +18,8 @@
 }
 
 .formcontainer {
-  border: 3px solid rgb(44, 143, 255);
+  border: 2px solid rgb(50, 122, 255);
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Card from "../../Component/Card";
+import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import classes from "./style.module.css";
@@ -14,6 +15,7 @@ const Tab2 = () => {
 
   const cardData = useSelector((state) => state.images.data);
   const loading = useSelector((state) => state.images.fetching);
+  const isLoggedIn = useSelector((state) => state.auth.status);
   const dispatch = useDispatch();
 
   const submitChanges = () => {
@@ -58,72 +60,84 @@ const Tab2 = () => {
   }, [selectedID]);
 
   return (
-    <div className={classes.cardHolderContainer}>
-      {loading ? (
-        <div className={classes.loaderContainer}>
-          <ClipLoader size={75} color={"#123abc"} loading />
+    <>
+      {isLoggedIn === "Correct" ? (
+        <div className={classes.cardHolderContainer}>
+          {loading ? (
+            <div className={classes.loaderContainer}>
+              <ClipLoader size={75} color={"#123abc"} loading />
+            </div>
+          ) : (
+            <div className={classes.cardContainer}>
+              {cardData && cardData.length ? (
+                cardData.map((card) => (
+                  <Card
+                    clicked={(id, type) => handleClick(id, type)}
+                    editable
+                    key={card.id}
+                    data={card}
+                  />
+                ))
+              ) : (
+                <p>No cards to show</p>
+              )}
+            </div>
+          )}
+
+          <Modal show={show} onHide={() => handleClose()}>
+            <Modal.Header closeButton>
+              <p className={classes.modalHeader}>
+                You can edit the details here
+              </p>
+            </Modal.Header>
+            <div className={classes.modalBody}>
+              <div className={classes.formItem}>
+                <label htmlFor="author">Author</label>
+                <input
+                  id="author"
+                  value={author}
+                  onChange={(event) => setAuthor(event.target.value)}
+                />
+              </div>
+              <div className={classes.formItem}>
+                <label htmlFor="description">Description</label>
+                <input
+                  id="description"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                />
+              </div>
+              <div className={classes.formItem}>
+                <label htmlFor="title">Title</label>
+                <input
+                  id="title"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <div className={classes.formCTA}>
+                <button
+                  className={classes.closeBtn}
+                  variant="secondary"
+                  onClick={() => handleClose()}
+                >
+                  Close
+                </button>
+                <button
+                  className={classes.saveBtn}
+                  variant="primary"
+                  onClick={() => submitChanges()}
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </Modal>
         </div>
       ) : (
-        <div className={classes.cardContainer}>
-          {cardData.map((card) => (
-            <Card
-              clicked={(id, type) => handleClick(id, type)}
-              editable
-              key={card.id}
-              data={card}
-            />
-          ))}
-        </div>
+        <Redirect to="/authenticate" />
       )}
-
-      <Modal show={show} onHide={() => handleClose()}>
-        <Modal.Header closeButton>
-          <p className={classes.modalHeader}>You can edit the details here</p>
-        </Modal.Header>
-        <div className={classes.modalBody}>
-          <div className={classes.formItem}>
-            <label htmlFor="author">Author</label>
-            <input
-              id="author"
-              value={author}
-              onChange={(event) => setAuthor(event.target.value)}
-            />
-          </div>
-          <div className={classes.formItem}>
-            <label htmlFor="description">Description</label>
-            <input
-              id="description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-            />
-          </div>
-          <div className={classes.formItem}>
-            <label htmlFor="title">Title</label>
-            <input
-              id="title"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            />
-          </div>
-          <div className={classes.formCTA}>
-            <button
-              className={classes.closeBtn}
-              variant="secondary"
-              onClick={() => handleClose()}
-            >
-              Close
-            </button>
-            <button
-              className={classes.saveBtn}
-              variant="primary"
-              onClick={() => submitChanges()}
-            >
-              Save Changes
-            </button>
-          </div>
-        </div>
-      </Modal>
-    </div>
+    </>
   );
 };
 

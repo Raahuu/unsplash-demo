@@ -4,7 +4,7 @@ import classes from "./style.module.css";
 const Card = (props) => {
   return (
     <div className={classes.card}>
-      <div className="d-flex flex-column">
+      <div className={`${classes.classContents} d-flex flex-column`}>
         <div className={classes.imageHolder}>
           <img
             width="100%"

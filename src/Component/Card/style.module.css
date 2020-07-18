@@ -1,7 +1,6 @@
 .imageHolder {
-  height: 200px;
-  width: 90%;
-  margin-top: 10px;
+  height: 100%;
+  width: 100%;
   background-color: rgba(163, 163, 163, 0.24);
   align-self: center;
 }
@@ -9,16 +8,41 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 200px;
   width: 30%;
   margin: 10px;
-  box-shadow: 3px 3px 4px rgba(48, 48, 48, 0.486), -3px -3px 3px white;
+  border: 1px rgb(218, 218, 218) solid;
+  box-shadow: 1px 1px 5px rgba(161, 161, 161, 0.329);
 }
+
+.classContents {
+  position: relative;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+}
+
 .details {
-  padding: 15px;
-  min-height: 50px;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.589);
   font-style: italic;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
 }
+.details:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.details p {
+  text-align: center;
+}
+
 .actions {
   display: flex;
   justify-content: flex-end;
@@ -43,7 +67,7 @@
 
 .delete {
   background-color: #fff;
-  border: 1px solid rgb(255, 52, 52);
+  border: 1px solid rgb(255, 52, 52) !important;
   color: rgb(255, 52, 52);
 }
 .delete:hover {
